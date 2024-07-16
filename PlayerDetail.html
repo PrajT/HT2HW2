@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Cricket Player Databse</title>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Cricket Player Databse</a>
+    </nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Players.html">Players</a></li>
+      <li><a href="Report.html">Report</a></li>
+    </ul>
+    <h1>Player Details</h1>
+    </header>
+
+  <main>
+    <section id="PlayerDetails">
+
+    </section>
+  </main>
+  <footer>
+  </footer>
+  <script>
+
+    //database
+    let Player = [
+      {id: "1", Player: "Player 1", Country: "India", Role: "Batsman"},
+      {id: "2",  Player: "Player 2", Country: "Australia", Role: "Bowler"}
+    ]
+
+    function getParameterById(id){
+
+      let url = new URL(window.location.href)
+      return url.searchParams.get(id)
+    }
+
+    let playerId = getParameterById('id')
+
+    let Play
+    for (let i = 0; i < Player.length; i++) {
+      if (Player[i].id === playerId) {
+        Play = Player[i]
+
+      }
+    }
+    //console.log(Play)
+
+    if(Play){
+      let playerdetail = document.getElementById('PlayerDetails')
+      console.log(playerdetail)
+
+      playerdetail.innerHTML = `
+      <h2>${Play.Player}</h2>
+      <p><strong>Country:</strong> ${Play.Country}</p>
+      <p><strong>Role:</strong> ${Play.Role}</p>
+      `
+    }
+   
+    
+    
+    
+
+
+  </script> 
+  </body>
+</html>
